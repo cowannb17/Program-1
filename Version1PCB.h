@@ -1,22 +1,18 @@
 #include <array>
 #include <iostream>
 
-class PCBv1 {
-    public:
-        int init(int PID, int parent, int link) {
-            this->PID = PID;
-            this->parent = parent;
-            this->link = link;
-        }
-        int PID;
-        int parent;
-        int link;
-        PCBv1 create();
-    private:
-        int arr[16] {PID, parent, link};
+struct data {
+    int num;
+    PCBv1* pcb;
 };
 
-PCBv1 PCBv1::create() {
-    PCBv1 newPCB();
-    return newPCB();
-}
+class PCBv1 {
+    public:
+        PCBv1() {
+            PCBdata[0].num = -1; //PID
+            PCBdata[1].pcb = NULL; //parent
+            PCBdata[2].pcb = NULL; //next
+        }
+    private:
+        data PCBdata[16];
+};
